@@ -1,6 +1,6 @@
 import React from 'react'
 // import './KeyboardButton.styles.css'
-import KeyboardButton from './KeyboardButton.component.jsx'
+import KeyboardButton from '../KeyboardButton/KeyboardButton.component.jsx'
 
 function KeyboardContainer(props) {
     return (

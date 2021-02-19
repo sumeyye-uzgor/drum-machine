@@ -1,0 +1,35 @@
+.switch-button{
+    /* background-color: white; */
+    border: none;
+    border-radius:2vh;
+    height: 5vh;
+    font-size: 2vh;
+    font-weight: 700;
+    color: #f35b04;
+    /* padding: 1em; */
+    width: 8vh;
+    margin: -1.5vh;
+    background-color: white;
+}
+
+#switch-button1{
+    padding-left: 1vh;
+    padding-top: 1vh;
+}
+
+#switch-button2{
+    padding-right: 1vh;
+    padding-top: 1vh;
+}
+#button-container{
+    max-width: 50px;
+    padding: 2em;
+}
+#switch-label{
+    color: #f35b04;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+/* #keyboard-button:active{
+
+} */

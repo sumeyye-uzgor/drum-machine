@@ -1,5 +1,5 @@
 import './App.css';
-import DrumMachine from './components/DrumMachine.component.jsx'
+import DrumMachine from './components/DrumMachine/DrumMachine.component.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
