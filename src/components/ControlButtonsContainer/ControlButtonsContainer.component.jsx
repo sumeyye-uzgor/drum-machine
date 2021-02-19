@@ -8,10 +8,16 @@ function ControlButtonsContainer() {
             <SwitchContainer
                 handleClickOn={() => console.log('power on')}
                 handleClickOff={() => console.log('power off')}
+                label='Power On/Off'
                 state='on' />
-            {/* <div id='display-text'> display </div> */}
-            {/* <input type="range" id="volume" name="volume"
-                min="0" max="11" onChange={() => console.log('volume dlkjdjkds')} /> */}
+            <div id='display-text'> display </div>
+            <input type="range" id="range-input" name="volume"
+                min="0" max="100" onChange={() => console.log('volume dlkjdjkds')} />
+            <SwitchContainer
+                handleClickOn={() => console.log('power on')}
+                handleClickOff={() => console.log('power off')}
+                label='Bank On/Off'
+                state='off=' />
             {/* <SwitchContainer handleClickOn={() => console.log('power on')} handleClickOff={() => console.log('power off')} /> */}
 
         </div>

@@ -1,4 +1,50 @@
 #display-text{
     background-color: white;
-    color: blue;
+    color: #fec601;
+    margin: 3vh;
+    padding: 1vh;
+    font-size: 4vh;
+    font-weight: 500;
+}
+
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      width: 40vh;
+      -webkit-appearance: none;
+      background-color: white;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 7vh;
+      -webkit-appearance: none;
+      color: #fec601;
+      max-width: 100vh;
+      margin-top: -1vh;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 1vh;
+      -webkit-appearance: none;
+      height: 7vh;
+      cursor: ew-resize;
+      background: #fec601;
+      box-shadow: -70vh 0 0 70vh #fec601;
+    }
+
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #fec601; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color: #fec601;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: #fec601; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color: white;
 }
