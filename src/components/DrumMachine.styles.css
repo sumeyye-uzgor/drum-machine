@@ -1,0 +1,36 @@
+#drum-machine{
+    /* background-color: white; */
+    border: 0.4em solid #ff7d00;
+    border-radius: 0.5em;
+    min-height: max-content;
+    /* color: red; */
+    padding: 4em;
+    min-width: 80vh;
+    display: inline-flex;
+}
+button, input{
+    background-color: #00f5d4;
+    color: black;
+    border: 0.4em solid black;
+    border-radius: 0.5em;
+    min-height: max-content;
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 1em;
+    max-width: 60vh;
+    margin-left: auto;
+}
+
+#other-buttons-container{
+    display: block;
+    align-items: center;
+    padding: auto;
+    min-width: 50vh;
+}
+#switch{
+    display: inline;
+}
+#switch-label{
+    color: #00f5d4;
+    font-size: 1.5em;
+}
