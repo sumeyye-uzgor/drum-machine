@@ -5,42 +5,23 @@ import { createStructuredSelector } from 'reselect'
 
 import './KeyboardButton.styles.css'
 
-import { dontPlayNote, triggerDrum } from '../../redux/Actions'
-import { selectBank, selectPower, selectVolume, selectPlayNote } from '../../redux/Selectors'
+import { triggerDrum } from '../../redux/Actions'
+import { selectBank, selectPower, selectVolume } from '../../redux/Selectors'
 import { findNote } from '../../redux/Utils'
-
+// import { render } from '@testing-library/react'
 
 
 
 class KeyboardButton extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            isTriggered: false
-        }
-    }
-    // renderElement(volume, url, dontPlayNote, playNote) {
-    //     // if (this.state.isTriggered) {
-    //     //     console.log(playNote)
-    //     //     // console.log(this.state.isTriggered)
-    //     //     dontPlayNote()
-    //     //     // this.setState({ isTriggered: false })
-    //     //     return < ReactAudioPlayer autoPlay={true} src={url} volume={volume / 100} />
-
-    //     }
-    //     return null;
-    // }
-    handleClick(id, triggerDrum, playNote, url, volume, dontPlayNote) {
-
-        triggerDrum(id);
-        // this.url.play()
-        console.log(playNote)
-        console.log(volume)
-        console.log(dontPlayNote)
-        // this.setState({ isTriggered: true })
+    handleClick(selectedNote, volume, triggerDrum) {
+        triggerDrum(selectedNote.id)
+        this.player.src = selectedNote.url
+        this.player.volume = volume / 50
+        this.player.play()
     }
     render() {
-        const { color, name, power, triggerDrum, bank, volume, dontPlayNote, playNote } = this.props
+
+        const { color, name, power, triggerDrum, bank, volume } = this.props
         const selectedNote = findNote(bank, name)
 
         return (
@@ -48,32 +29,27 @@ class KeyboardButton extends React.Component {
                 <button
                     id='keyboard-button'
                     disabled={!power}
-                    onClick={() => {
-                        this.handleClick(selectedNote.id, triggerDrum, playNote, selectedNote.url, volume, dontPlayNote)
-                    }}
+                    onClick={() => this.handleClick(selectedNote, volume, triggerDrum)}
                     style={{ backgroundColor: color }}
                 >
                     {name}
                 </button>
                 <audio ref={ref => this.player = ref} />
-
             </span>
 
         )
     }
 }
 
+
 const mapStateToProps = createStructuredSelector({
     power: selectPower,
     bank: selectBank,
     volume: selectVolume,
-    playNote: selectPlayNote
-
 })
 
 const mapDispatchToProps = dispatch => ({
-    triggerDrum: key => dispatch(triggerDrum(key)),
-    dontPlayNote: () => dispatch(dontPlayNote())
+    triggerDrum: key => dispatch(triggerDrum(key))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(KeyboardButton);
