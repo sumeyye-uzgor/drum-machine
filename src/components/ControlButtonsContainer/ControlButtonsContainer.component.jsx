@@ -1,35 +1,40 @@
 import React from 'react'
-import './ControlButtonsContainer.styles.css'
-import SwitchContainer from '../SwitchContainer/SwitchContainer.component.jsx'
 import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 
-import { selectDisplayText } from '../../redux/Selectors'
+import './ControlButtonsContainer.styles.css'
+
+// import SwitchContainer from '../SwitchContainer/SwitchContainer.component.jsx'
+import BankSwitch from '../BankSwitch/BankSwitch.component.jsx'
+import PowerSwitch from '../PowerSwitch/PowerSwitch.component.jsx'
 
 
-function ControlButtonsContainer({ displayText }) {
+import { selectDisplayText, selectVolume, selectPower } from '../../redux/Selectors'
+import { setVolumeLevel } from '../../redux/Actions'
+
+function ControlButtonsContainer({ displayText, volume, setVolume, power }) {
     return (
         <div>
-            <SwitchContainer
-                handleClickOn={() => console.log('power on')}
-                handleClickOff={() => console.log('power off')}
-                label='Power On/Off'
-                state='on' />
+            <PowerSwitch />
             <div id='display-text'>{displayText}</div>
-            <input type="range" id="range-input" name="volume"
-                min="0" max="100" onChange={(e) => console.log(`volume :${e.target.value}`)} />
-            <SwitchContainer
-                handleClickOn={() => console.log('power on')}
-                handleClickOff={() => console.log('power off')}
-                label='Bank On/Off'
-                state='off=' />
+            <input type="range" id="range-input" name="volume" valueasnumber={volume}
+                min="0" max="100" disabled={!power} onClick={(e) => setVolume(e.target.valueAsNumber)} />
+            <BankSwitch />
             {/* <SwitchContainer handleClickOn={() => console.log('power on')} handleClickOff={() => console.log('power off')} /> */}
 
         </div>
     )
 }
 
-const mapStateToProps = (state) => ({
-    displayText: selectDisplayText(state)
+const mapStateToProps = createStructuredSelector({
+    displayText: selectDisplayText,
+    // bank: selectBank
+    power: selectPower,
+    volume: selectVolume
+})
+const mapDispatchToProps = dispatch => ({
+    setVolume: (volLevel) => dispatch(setVolumeLevel(volLevel))
 })
 
-export default connect(mapStateToProps)(ControlButtonsContainer);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ControlButtonsContainer);

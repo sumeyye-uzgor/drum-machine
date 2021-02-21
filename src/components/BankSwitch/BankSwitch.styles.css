@@ -1,0 +1,17 @@
+
+#switch-container{
+    display:flex;
+    align-items: center;
+    /* justify-content: baseline; */
+    /* justify-content: center; */
+}
+#switch-label{
+    color: #f35b04;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin: 1em;
+
+}
+/* #keyboard-button:active{
+
+} */
