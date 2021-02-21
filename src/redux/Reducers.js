@@ -38,6 +38,11 @@ const Reducer = (state = INITIAL_STATE, action) => {
                 playNote: true,
                 displayText: action.payload,
             }
+        case Types.DONT_PLAY_NOTE:
+            return {
+                ...state,
+                playNote: false
+            }
 
         default:
             return state;

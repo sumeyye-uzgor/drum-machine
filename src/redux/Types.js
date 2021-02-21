@@ -2,7 +2,8 @@ const Types = {
     SET_VOLUME_LEVEL: 'SET_VOLUME_LEVEL',
     SET_POWER: 'SET_POWER',
     SET_BANK: 'SET_BANK',
-    TRIGGER_DRUM: 'TRIGGER_DRUM'
+    TRIGGER_DRUM: 'TRIGGER_DRUM',
+    DONT_PLAY_NOTE: 'DONT_PLAY_NOTE'
 }
 
 export default Types;

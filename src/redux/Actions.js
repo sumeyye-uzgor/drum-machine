@@ -26,3 +26,9 @@ export const triggerDrum = key => (
         payload: key
     }
 )
+
+export const dontPlayNote = () => (
+    {
+        type: Types.DONT_PLAY_NOTE
+    }
+)
